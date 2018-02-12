@@ -9,13 +9,13 @@ class AddFolder():
       d = self.window.project_data()
 
       # if no project present
-      if not d: 
+      if not d:
          d = {'folders': [{'follow_symlinks': True, 'path': dirPath}] }
          self.window.set_project_data(d)
-         return 
+         return
 
       d['folders'].append({'path': dirPath, 'follow_symlinks': True})
-      self.window.set_project_data(d)         
+      self.window.set_project_data(d)
 
    def exists(self, dirPath):
       d = self.window.project_data()
@@ -57,7 +57,7 @@ class AddCustomFolderToProject( sublime_plugin.WindowCommand ):
    def on_done(result):
       AddFolder.add(mySelf, result)
 
-        
+
 # Command "Add This Folder To Project"
 class AddActualFolderToProject( sublime_plugin.WindowCommand ):
 
@@ -87,7 +87,12 @@ class RemoveActualFolderFromProject( sublime_plugin.WindowCommand ):
          AddFolder.remove(self, dirName)
 
    def is_visible(self):
-      filePath = self.window.active_view().file_name();
+      view = self.window.active_view()
+
+      if view:
+         filePath = view.file_name();
+      else:
+         return False
 
       # if path exists AND doesn't exists in the project already, visibile
       if (filePath and AddFolder.exists(self, os.path.dirname(filePath) ) ):
@@ -134,7 +139,7 @@ class ListFolderToAdd( sublime_plugin.WindowCommand ):
          global mySelf
          mySelf = self
          AddFolder.add(self, dirPath)
-      
+
       del folderList[:]
 
 class CopyFilePath( sublime_plugin.WindowCommand ):
@@ -153,7 +158,7 @@ class CopyDirPath( sublime_plugin.WindowCommand ):
 
 
 class CreateProjectFromFile(sublime_plugin.WindowCommand):
-   
+
    def run(self, paths = []):
       import subprocess
       items = []

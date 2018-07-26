@@ -23,7 +23,7 @@ class AddFolder():
       if d :
          for folder in d['folders']:
             if (folder['path']):
-               if os.path.samefile( dirPath, folder['path']):
+               if os.path.normpath(dirPath) == os.path.normpath(folder['path']):
                   return True
 
       return False
@@ -34,7 +34,7 @@ class AddFolder():
       nI = 0
       for folder in d['folders']:
          if (folder['path']):
-            if os.path.samefile( dirPath, folder['path']):
+            if os.path.normpath(dirPath) == os.path.normpath(folder['path']):
                del (d['folders'][nI])
                self.window.set_project_data(d)
                return True

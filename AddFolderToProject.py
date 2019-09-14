@@ -21,7 +21,7 @@ class AddFolder():
       d = self.window.project_data()
 
       if d :
-         for folder in d['folders']:
+         for folder in d.get('folders', []):
             if (folder['path']):
                if os.path.normpath(dirPath) == os.path.normpath(folder['path']):
                   return True

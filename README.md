@@ -7,6 +7,29 @@ You can also create a new project starting from the opened file in sublime.
 
 I created this plugin because I often edit files in sublime opening it directly from MS Visual Studio (I created the shortcut Alt+S in VS) or with F4 from TotalCommander and I generally find useful having the directory in the project or copying the file path in the clipboard.
 
+
+## Installation
+
+### By Package Control
+
+1. Download & Install `Sublime Text 3` (https://www.sublimetext.com/3)
+1. Go to the menu `Tools -> Install Package Control`, then,
+   wait few seconds until the `Package Control` installation finishes
+1. Go to the menu `Preferences -> Package Control`
+1. Type `Package Control Add Channel` on the opened quick panel and press <kbd>Enter</kbd>
+1. Then, input the following address and press <kbd>Enter</kbd>
+   ```
+   https://raw.githubusercontent.com/evandrocoan/StudioChannel/master/channel.json
+   ```
+1. Now, go again to the menu `Preferences -> Package Control`
+1. This time type `Package Control Install Package` on the opened quick panel and press <kbd>Enter</kbd>
+1. Then, search for `AddFolderToProject` and press <kbd>Enter</kbd>
+
+See also:
+1. [ITE - Integrated Toolset Environment](https://github.com/evandrocoan/ITE)
+1. [Package control docs](https://packagecontrol.io/docs/usage) for details.
+
+
 Usage
 -----
 Just right click on the view or open the command panel and choose the operation.
@@ -17,7 +40,7 @@ Opens a list of the directories from the root to the file's directory.
 ![Add Folders To Project](./images/AddFolders.png)
 
 **Add This Folder To Project:**
-Add directly the file's directory to the project. 
+Add directly the file's directory to the project.
 
 ![Add This Folders To Project](./images/AddThisFolder.png)
 
